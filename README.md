@@ -1,10 +1,10 @@
 # Available REST API endpoints:
 
 # Get user by ID
-Get /api/users/{id}
+GET /api/users/{id}
 
 # Create User
-Post /api/users
+POST /api/users
 {
 	"name": "name",
 	"email": "email",
@@ -14,13 +14,13 @@ Post /api/users
 }
 
 # Delete User
-Delete /api/users/{id}
+DELETE /api/users/{id}
 
 # Get Workshop by ID
-Get /api/workshops/{id}
+GET /api/workshops/{id}
 
 # Create Workshop
-Post /api/workshops
+POST /api/workshops
 {
 	"companyname": "companyname",
 	"email": "email@email",
@@ -30,17 +30,17 @@ Post /api/workshops
 	"trademarks": ["BMW", "AUDI"]
 }
 
-# Find Workshop by cit
-Post /api/workshops/search?city={cityName}
+# Find Workshop by ID
+POST /api/workshops/search?city={cityName}
 
 # Delete Workshop
-Delete /api/workshops/{id}
+DELETE /api/workshops/{id}
 
 # Get Appointment by ID
-Get /api/appointments/{id}
+GET /api/appointments/{id}
 
 # Create Appointment
-Post /api/appointments
+POST /api/appointments
 {
 	"UserId": "{UserId}",
 	"WorkshopId": "{WorkshopId}",
@@ -49,10 +49,10 @@ Post /api/appointments
 }
 
 # Delete Appointment
-Delete /api/appointments/{id}
+DELETE /api/appointments/{id}
 
 # Update Appointment
-Put /api/appointments
+PUT /api/appointments
 {
 	"Id": "{AppointmentId}",
 	"Time": "2020-03-31"
