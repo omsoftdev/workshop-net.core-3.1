@@ -40,5 +40,10 @@ namespace CarWorkshop.Storage.InMemory
 
             return Task.FromResult(entity);
         }
+
+        public virtual Task Update(T entity)
+        {
+            return Task.CompletedTask;
+        }
     }
 }

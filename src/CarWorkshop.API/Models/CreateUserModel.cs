@@ -16,5 +16,8 @@ namespace CarWorkshop.API.Models
 
         [Required]
         public string PostalCode { get; set; }
+
+        [Required]
+        public string Country { get; set; }
     }
 }

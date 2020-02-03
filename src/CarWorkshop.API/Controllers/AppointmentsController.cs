@@ -57,5 +57,27 @@ namespace CarWorkshop.API.Controllers
 
             return new ActionResult<Guid>(id);
         }
+
+        [HttpPut()]
+        public async Task<ActionResult<Guid>> Update(
+            [FromBody]
+            UpdateAppointmentModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            var appointment = await this.storage.FindById(model.Id.Value);
+            if (appointment == null)
+            {
+                return BadRequest();
+            }
+
+            appointment.Time = model.Time.Value;
+            await this.storage.Update(appointment);
+
+            return Ok();
+        }
     }
 }

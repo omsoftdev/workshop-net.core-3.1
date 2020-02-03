@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 using CarWorkshop.API.Models;
 using CarWorkshop.Entities;
 using CarWorkshop.Storage;
@@ -44,6 +45,22 @@ namespace CarWorkshop.API.Controllers
                 });
 
             return new ActionResult<Guid>(id);
+        }
+
+        [HttpPost("search")]
+        public async Task<ActionResult<object>> Search(string city)
+        {
+            if (string.IsNullOrEmpty(city))
+            {
+                return BadRequest();
+            }
+
+            var workshops = await this.storage.FindByCity(city);
+
+            return new ActionResult<object>(
+                workshops
+                    .Select(w => new { w.Id, w.CompanyName })
+                    .ToList());
         }
     }
 }

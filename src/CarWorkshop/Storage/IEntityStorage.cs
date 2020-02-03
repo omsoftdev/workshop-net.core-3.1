@@ -11,5 +11,7 @@ namespace CarWorkshop.Storage
         Task<bool> Delete(Guid id);
 
         Task<T> FindById(Guid id);
+
+        Task Update(T entity);
     }
 }
